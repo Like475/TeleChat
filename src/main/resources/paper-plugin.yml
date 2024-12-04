@@ -1,5 +1,5 @@
 name: TeleChat
-version: '1.0-SNAPSHOT'
+version: '1.0'
 main: io.github.like475.teleChat.TeleChat
 api-version: '1.21'
 authors: [ Like475 ]
