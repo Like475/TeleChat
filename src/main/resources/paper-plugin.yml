@@ -1,0 +1,6 @@
+name: TeleChat
+version: '1.0-SNAPSHOT'
+main: io.github.like475.teleChat.TeleChat
+api-version: '1.21'
+authors: [ Like475 ]
+description: Link chat to a telegram group
