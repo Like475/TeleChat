@@ -5,6 +5,7 @@ import com.github.kotlintelegrambot.bot
 import com.github.kotlintelegrambot.dispatch
 import com.github.kotlintelegrambot.dispatcher.text
 import com.github.kotlintelegrambot.entities.ChatId
+import com.github.kotlintelegrambot.entities.ParseMode
 import io.github.like475.telechat.processor.Processor
 
 object TelegramBot {
@@ -25,5 +26,5 @@ object TelegramBot {
         this.bot.startPolling()
     }
 
-    fun sendMessage(message: String) { bot.sendMessage(chatId, message) }
+    fun sendMessage(message: String) { bot.sendMessage(chatId, message, ParseMode.MARKDOWN_V2) }
 }

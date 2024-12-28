@@ -21,7 +21,7 @@ object PlayerDeathHandler : Listener {
                 MiniMessage
                     .miniMessage()
                     .deserialize("<gradient:green:dark_green>${event.player.name}</gradient> "
-                            + "<dark_gray>$originalMessageText</dark_gray>")
+                            + "<dark_gray>[<dark_red>DTH</dark_red>></dark_gray> $originalMessageText")
             )
         }
         Processor.processPlayerDeath(event.player, originalMessage)

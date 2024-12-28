@@ -15,6 +15,7 @@ object ChatHandler : Listener {
                 .deserialize("<gradient:green:dark_green>${source.name}</gradient> <dark_gray>[></dark_gray> ")
                 .append(message)
         }
+
         Processor.processMinecraftMessage(event.player, event.message())
     }
 }

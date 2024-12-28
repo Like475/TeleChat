@@ -1,6 +1,6 @@
 name: TeleChat
 version: '1.0'
 main: io.github.like475.telechat.TeleChat
-api-version: '1.21'
+api-version: '1.21.4'
 authors: [ Like475 ]
 description: Link minecraft chat to a telegram group

@@ -28,14 +28,14 @@ object Processor {
 
     fun processMinecraftMessage(player: Player, message: Component) {
         val messageText = PlainTextComponentSerializer.plainText().serialize(message)
-        TelegramBot.sendMessage("${player.name}: $messageText")
+        TelegramBot.sendMessage("*${player.name}* _MESSAGE_\n`$messageText`")
     }
 
     fun processPlayerJoinLeave(player: Player, isJoin: Boolean) {
         if (isJoin) {
-            TelegramBot.sendMessage("${player.name} присоеденился к серверу")
+            TelegramBot.sendMessage("*${player.name}* _JOIN_")
         } else {
-            TelegramBot.sendMessage("${player.name} покинул сервер")
+            TelegramBot.sendMessage("*${player.name}* _QUIT_")
         }
     }
 
@@ -44,17 +44,17 @@ object Processor {
             .plainText()
             .serialize(advancement.displayName())
             .removeSurrounding("[", "]")
-        TelegramBot.sendMessage("${player.name} выполнил достижение: $advancementName")
+        TelegramBot.sendMessage("*${player.name}* _ADVANCEMENT_\n`$advancementName`")
     }
 
     fun processPlayerDeath(player: Player, deathMessage: Component?) {
         var deathMessageText = ""
         if (deathMessage != null) {
-            deathMessageText = " по причине: " + PlainTextComponentSerializer
+            deathMessageText = PlainTextComponentSerializer
                 .plainText()
                 .serialize(deathMessage)
                 .removeSurrounding("${player.name} ", "")
         }
-        TelegramBot.sendMessage("${player.name} умер$deathMessageText")
+        TelegramBot.sendMessage("*${player.name}* _DEATH_\n`$deathMessageText`")
     }
 }
