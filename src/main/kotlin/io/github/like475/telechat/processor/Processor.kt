@@ -22,20 +22,20 @@ object Processor {
             MiniMessage
             .miniMessage()
             .deserialize(
-                "<gradient:aqua:dark_aqua>${user.username}</gradient> "
+                "<gradient:aqua:dark_aqua>${user.username?.replace('_', ' ')}</gradient> "
                         + "<dark_gray>[<dark_aqua>TG</dark_aqua>></dark_gray> $message"))
     }
 
     fun processMinecraftMessage(player: Player, message: Component) {
         val messageText = PlainTextComponentSerializer.plainText().serialize(message)
-        TelegramBot.sendMessage("*${player.name}* _MESSAGE_\n`$messageText`")
+        TelegramBot.sendMessage("*${player.name.replace('_', ' ')}* _MESSAGE_\n`$messageText`")
     }
 
     fun processPlayerJoinLeave(player: Player, isJoin: Boolean) {
         if (isJoin) {
-            TelegramBot.sendMessage("*${player.name}* _JOIN_")
+            TelegramBot.sendMessage("*${player.name.replace('_', ' ')}* _JOIN_")
         } else {
-            TelegramBot.sendMessage("*${player.name}* _QUIT_")
+            TelegramBot.sendMessage("*${player.name.replace('_', ' ')}* _QUIT_")
         }
     }
 
@@ -44,7 +44,7 @@ object Processor {
             .plainText()
             .serialize(advancement.displayName())
             .removeSurrounding("[", "]")
-        TelegramBot.sendMessage("*${player.name}* _ADVANCEMENT_\n`$advancementName`")
+        TelegramBot.sendMessage("*${player.name.replace('_', ' ')}* _ADVANCEMENT_\n`$advancementName`")
     }
 
     fun processPlayerDeath(player: Player, deathMessage: Component?) {
@@ -53,8 +53,8 @@ object Processor {
             deathMessageText = PlainTextComponentSerializer
                 .plainText()
                 .serialize(deathMessage)
-                .removeSurrounding("${player.name} ", "")
+                .removeSurrounding("${player.name.replace('_', ' ')} ", "")
         }
-        TelegramBot.sendMessage("*${player.name}* _DEATH_\n`$deathMessageText`")
+        TelegramBot.sendMessage("*${player.name.replace('_', ' ')}* _DEATH_\n`$deathMessageText`")
     }
 }
